@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <iostream>
 
+
 using namespace std;
 
 template <class T>
@@ -14,15 +15,28 @@ private:
 
 public:
 	// Default constructor
-	PointType() { x = 0, y = 0; cout << fixed << setprecision(1) << showpoint;
+	PointType() { 
+		x = 0;
+		y = 0; 
+		cout << fixed << setprecision(1) << showpoint;
 	}
 	
 	// Construct with parameters
-	PointType(T Ux, T Uy) : x(Ux), y(Uy) { cout << fixed << setprecision(1) << showpoint; }
+	PointType(T Ux, T Uy) {
+		x = Ux;
+		y = Uy;
+		cout << fixed << setprecision(1) << showpoint;
+	}
 
-	// Setters
-	void setX(T Ux) { x = Ux; }
-	void setY(T Uy) { y = Uy; }
+	// Sets value for x
+	void setX(T Ux) { 
+		x = Ux; 
+	}
+
+	// Sets value for y
+	void setY(T Uy) { 
+		y = Uy; 
+	}
 	void setPoint(T Ux, T Uy) {
 		x = Ux;
 		y = Uy;
@@ -31,16 +45,20 @@ public:
 	// Getters
 	T getX() { return x; }
 	T getY() { return y; }
+
+
 	void getPoint(T& Ux, T& Uy) {
 		Ux = x;
 		Uy = y;
 	}
 
+	// Overload subtraction operator to calculate distance
 	double operator -(PointType<T> op2) {
 		double distance = sqrt(pow(x - op2.x, 2) + pow(y - op2.y,2));
 		return distance;
 	}
 
+	// Print function
 	void print() 
 	{
 		cout << "(" << x << ", " << y << ")" << endl;

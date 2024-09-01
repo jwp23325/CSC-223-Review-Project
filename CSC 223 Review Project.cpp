@@ -35,16 +35,31 @@ int main()
     distance = p1D - p2D;
     cout << distance << endl;
 
-    // Setters Test
+    // Setting individual point test
     p1I.setX(7);
     p1I.setY(9);
     p1D.setX(4.4);
     p1D.setY(6.6);
 
-    // Getters Test
+    // Getting individual point test
     cout << "\nNew integer point: (" << p1I.getX() << ", " << p1I.getY() << ")" << endl;
-    cout << "New integer point: (" << p1D.getX() << ", " << p1D.getY() << ")" << endl;
+    cout << "New double point: (" << p1D.getX() << ", " << p1D.getY() << ")" << endl;
+
+    // Setting and getting intger points test
+    p1I.setPoint(15, 25);
+    int xI, yI;    
+    p1I.getPoint(xI, yI);
+    cout << "\nNew integer point: (" << xI << ", " << yI << ")" << endl;
+    
+
+    // Test with double points
+    p1D.setPoint(7.7, 8.8);
+    double xD, yD;
+    p1D.getPoint(xD, yD);
+    cout << "New double point: (" << xD << ", " << yD << ")" << endl;
 
 
-}
+
+
+  }
 
