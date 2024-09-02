@@ -4,6 +4,8 @@
 #include <iomanip>
 #include <iostream>
 
+// This file was outlined by ChatGPT and modified by the User
+
 using namespace std;
 
 template <class T>
@@ -12,57 +14,65 @@ class CircleType
 private:
     PointType<T> centerPoint;
     PointType<T> circumferencePoint;
-    static const double PI;
+    const double PI = 3.1415926535;
 
 public:
+    // Default constructor
+    CircleType() {
+        centerPoint.setPoint(0, 0);
+        circumferencePoint.setPoint(1, 0);
+        cout << fixed << setprecision(2) << showpoint;
+
+    }
+
     // Constructor with parameters
-    CircleType(T cx, T cy, T fx, T fy)
-        : centerPoint(cx, cy), circumferencePoint(fx, fy)
-    {
-        cout << fixed << setprecision(1) << showpoint;
-    }
+    CircleType(T cx, T cy, T fx, T fy) {
+        centerPoint.setPoint(cx, cy);
+        circumferencePoint.setPoint(fx, fy);
+        cout << fixed << setprecision(2) << showpoint;
 
-    // Setters
+    }
+   
+
+    // Sets the center point
     void setCenterPoint(T cx, T cy) {
-        centerPoint.setX(cx);
-        centerPoint.setY(cy);
+        centerPoint.setPoint(cx, cy);
     }
 
+    // Sets the circumference point
     void setCircumferencePoint(T fx, T fy) {
-        circumferencePoint.setX(fx);
-        circumferencePoint.setY(fy);
+        circumferencePoint.setPoint(fx, fy);
     }
 
-    // Getters
-    void getCenterPoint(T& cx, T& cy) const {
-        cx = centerPoint.getX();
-        cy = centerPoint.getY();
+    // Gets the center point
+    void getCenterPoint(T& cx, T& cy) {
+        centerPoint.getPoint(cx, cy);
     }
 
-    void getCircumferencePoint(T& fx, T& fy) const {
-        fx = circumferencePoint.getX();
-        fy = circumferencePoint.getY();
+    // Gets the circumference point
+    void getCircumferencePoint(T& fx, T& fy) {
+        circumferencePoint.getPoint(fx, fy);
     }
 
-    // Calculate radius
-    double calcRadius() const {
+    // Calculates the radius
+    double calcRadius() {
         return centerPoint - circumferencePoint;
     }
 
-    // Calculate area
-    double calcArea() const {
+    // Calculates the  area
+    double calcArea() {
         double radius = calcRadius();
         return PI * radius * radius;
     }
 
-    // Calculate circumference
-    double calcCircumference() const {
+    // Calculates the circumference
+    double calcCircumference() {
         double radius = calcRadius();
         return 2 * PI * radius;
     }
 
-    // Print circle properties
-    void print() const {
+    // Print the circle properties
+    void print() {
         double radius = calcRadius();
         cout << "Radius: " << radius << endl;
         cout << "Area: " << calcArea() << endl;
@@ -70,6 +80,3 @@ public:
     }
 };
 
-// Initialize the static PI constant
-template <class T>
-const double CircleType<T>::PI = 3.141592653589793;
