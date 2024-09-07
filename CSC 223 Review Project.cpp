@@ -3,55 +3,59 @@
 
 
 #include <iostream>
-#include "CircleType.h"
+#include "CylinderType.h"
 
 using namespace std;
 
-int main()
-{
-    // Default constructor test
-    cout << "From default constructor" << endl;
-    CircleType<int> c1;
-    CircleType<double> c2;
-    cout << "Integer circle: ";
-    c1.print();
-    cout << "Double circle: ";
-    c2.print();
+int main() {
+    // Test default constructor
+    cout << "Testing Default Constructor..." << endl;
+    cout << "##########################################" << endl;
+    CylinderType<int> cylinder1;
+    cylinder1.print();
+    cout << "##########################################" << endl;
+    cout << endl;
 
-    // Parameterized constructor test
-    cout << "\nConstructor with parameters" << endl;
-    CircleType<int> c3(1, 1, 3, 4);
-    CircleType<double> c4(1.5, 2.5, 4.5, 5.5);
-    cout << "Integer circle: ";
-    c3.print();
-    cout << "Double circle: ";
-    c4.print();
+    // Test parameterized constructor
+    cout << "Testing Parameterized Constructor..." << endl;
+    cout << "##########################################" << endl;
+    CylinderType<int> cylinder2(0, 0, 3, 4, 10);
+    cylinder2.print();
+    cout << "##########################################" << endl;
+    cout << endl;
 
-    // Setters Test
-    c3.setCenterPoint(2, 2);
-    c3.setCircumferencePoint(5, 5);
-    c4.setCenterPoint(3.5, 4.5);
-    c4.setCircumferencePoint(7.5, 8.5);
+    // Test setters
+    cout << "Testing Setters..." << endl;
+    cout << "##########################################" << endl;
+    cylinder2.setHeight(15);
+    cout << "Updated Cylinder.\n" << endl;
+    cylinder2.print();
+    cout << "##########################################" << endl;
+    cout << endl;
 
-    // Getters Test
-    int cx, cy, fx, fy;
-    c3.getCenterPoint(cx, cy);
-    c3.getCircumferencePoint(fx, fy);
-    cout << "\nNew integer circle center: (" << cx << ", " << cy << ")" << endl;
-    cout << "New integer circle circumference point: (" << fx << ", " << fy << ")" << endl;
+    // Test getters
+    cout << "Testing Getters..." << endl;
+    cout << "##########################################" << endl;
+    cout << "Height: " << cylinder2.getHeight() << endl;
+    cout << "Radius: " << cylinder2.calcRadius() << endl;
+    cout << "Area of Base: " << cylinder2.calcArea() << endl;
+    cout << "Circumference of Base: " << cylinder2.calcCircumference() << endl;
+    cout << "Surface Area: " << cylinder2.calcSurfaceArea() << endl;
+    cout << "Volume: " << cylinder2.calcVolume() << endl;
+    cout << "##########################################" << endl;
+    cout << endl;
 
-    double cxD, cyD, fxD, fyD;
-    c4.getCenterPoint(cxD, cyD);
-    c4.getCircumferencePoint(fxD, fyD);
-    cout << "New double circle center: (" << cxD << ", " << cyD << ")" << endl;
-    cout << "New double circle circumference point: (" << fxD << ", " << fyD << ")" << endl;
-
-    // Radius, area, and circumference calculations
-    cout << "\nInteger circle radius = " << c3.calcRadius() << endl;
-    cout << "Integer circle area = " << c3.calcArea() << endl;
-    cout << "Integer circle circumference = " << c3.calcCircumference() << endl;
-
-    cout << "\nDouble circle radius = " << c4.calcRadius() << endl;
-    cout << "Double circle area = " << c4.calcArea() << endl;
-    cout << "Double circle circumference = " << c4.calcCircumference() << endl;
+    // Test with floating-point values
+    cout << "Testing Floating-Point Values..." << endl;
+    cout << "##########################################" << endl;
+    CylinderType<double> cylinder4(1.5, 2.5, 4.5, 5.5, 10.5);
+    cylinder4.print();
+    cout << "Height: " << cylinder4.getHeight() << endl;
+    cout << "Radius: " << cylinder4.calcRadius() << endl;
+    cout << "Area of Base: " << cylinder4.calcArea() << endl;
+    cout << "Circumference of Base: " << cylinder4.calcCircumference() << endl;
+    cout << "Surface Area: " << cylinder4.calcSurfaceArea() << endl;
+    cout << "Volume: " << cylinder4.calcVolume() << endl;
+    cout << "##########################################" << endl;
+    cout << endl;
 }
