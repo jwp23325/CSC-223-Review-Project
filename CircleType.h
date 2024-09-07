@@ -14,7 +14,7 @@ class CircleType
 private:
     PointType<T> centerPoint;
     PointType<T> circumferencePoint;
-    const double PI = 3.1415926535;
+    static double PI = 3.1415926535;
 
 public:
     // Default constructor
