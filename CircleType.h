@@ -25,7 +25,7 @@ public:
 
     }
 
-    // Constructor with parameters
+    // Constructor with coordinates sent in
     CircleType(T cx, T cy, T fx, T fy) {
         centerPoint.setPoint(cx, cy);
         circumferencePoint.setPoint(fx, fy);
@@ -33,6 +33,11 @@ public:
 
     }
    
+    // Construct with points sent in
+    CircleType(PointType<T> center, PointType<T> circumference) {
+        centerPoint = center;
+        circumferencePoint = circumference;
+    }
 
     // Sets the center point
     void setCenterPoint(T cx, T cy) {
