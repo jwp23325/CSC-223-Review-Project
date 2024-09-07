@@ -14,7 +14,7 @@ class CircleType
 private:
     PointType<T> centerPoint;
     PointType<T> circumferencePoint;
-    static double PI = 3.1415926535;
+    static const double PI;
 
 public:
     // Default constructor
@@ -79,9 +79,16 @@ public:
     // Print the circle properties
     void print() {
         double radius = calcRadius();
+
+        cout << "Center Point: ";
+        centerPoint.print();
+        cout << "Circumference Point: ";
+        circumferencePoint.print();
         cout << "Radius: " << radius << endl;
         cout << "Area: " << calcArea() << endl;
         cout << "Circumference: " << calcCircumference() << endl;
     }
 };
 
+template <class T>
+const double CircleType<T>::PI = 3.1415926535;  // Definition and initialization of PI
